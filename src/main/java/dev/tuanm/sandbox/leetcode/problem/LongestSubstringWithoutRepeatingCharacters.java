@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import dev.tuanm.sandbox.leetcode.annotation.Difficulty;
+import dev.tuanm.sandbox.leetcode.annotation.NotOptimizedYet;
 import dev.tuanm.sandbox.leetcode.annotation.Problem;
 import dev.tuanm.sandbox.leetcode.core.Solvable1;
 
@@ -14,6 +15,7 @@ import dev.tuanm.sandbox.leetcode.core.Solvable1;
         difficulty = Difficulty.MEDIUM
 )
 public class LongestSubstringWithoutRepeatingCharacters implements Solvable1<String, Integer> {
+    @NotOptimizedYet
     @Override
     public Integer solve(String s) {
         if (s.length() < 2) return s.length();
