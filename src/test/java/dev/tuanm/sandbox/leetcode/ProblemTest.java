@@ -1,5 +1,7 @@
 package dev.tuanm.sandbox.leetcode;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -39,5 +41,9 @@ public abstract class ProblemTest<S extends Solvable<?>> {
                 .map(problem -> problem.getClass())
                 .map(clazz -> clazz.getAnnotation(Problem.class))
                 .orElseThrow(() -> new NotSupportedException());
+    }
+
+    protected void run(Object expectation, Object... inputs) {
+        assertEquals(expectation, problem.solve(inputs));
     }
 }

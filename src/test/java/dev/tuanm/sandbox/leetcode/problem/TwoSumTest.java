@@ -21,7 +21,7 @@ public class TwoSumTest extends ProblemTest<TwoSum> {
         int[] nums = { 2, 7, 11, 15 };
         int target = 9;
         int[] expectation = { 0, 1 };
-        assertTrue(Arrays.equals(problem().solve(nums, target), expectation));
+        assertTrue(Arrays.equals(expectation, problem.solve(nums, target)));
     }
 
     @Test
@@ -30,7 +30,7 @@ public class TwoSumTest extends ProblemTest<TwoSum> {
         int[] nums = { 3, 2, 4 };
         int target = 6;
         int[] expectation = { 1, 2 };
-        assertTrue(Arrays.equals(problem().solve(nums, target), expectation));
+        assertTrue(Arrays.equals(expectation, problem.solve(nums, target)));
     }
 
     @Test
@@ -39,6 +39,6 @@ public class TwoSumTest extends ProblemTest<TwoSum> {
         int[] nums = { 3, 3 };
         int target = 6;
         int[] expectation = { 0, 1 };
-        assertTrue(Arrays.equals(problem().solve(nums, target), expectation));
+        assertTrue(Arrays.equals(expectation, problem.solve(nums, target)));
     }
 }
