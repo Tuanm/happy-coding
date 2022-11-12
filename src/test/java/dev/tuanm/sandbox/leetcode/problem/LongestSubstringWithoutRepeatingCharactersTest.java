@@ -27,6 +27,8 @@ public class LongestSubstringWithoutRepeatingCharactersTest
         return Stream.of(
                 Arguments.of("abcabcbb", 3),
                 Arguments.of("bbbbb", 1),
-                Arguments.of("pwwkew", 3));
+                Arguments.of("pwwkew", 3),
+                Arguments.of("au", 2),
+                Arguments.of("dvdf", 3));
     }
 }
