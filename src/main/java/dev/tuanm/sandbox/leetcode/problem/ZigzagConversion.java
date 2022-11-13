@@ -1,7 +1,6 @@
 package dev.tuanm.sandbox.leetcode.problem;
 
 import dev.tuanm.sandbox.leetcode.annotation.Difficulty;
-import dev.tuanm.sandbox.leetcode.annotation.NotOptimizedYet;
 import dev.tuanm.sandbox.leetcode.annotation.Problem;
 import dev.tuanm.sandbox.leetcode.core.Solvable2;
 
@@ -19,9 +18,19 @@ import dev.tuanm.sandbox.leetcode.core.Solvable2;
         difficulty = Difficulty.MEDIUM
 )
 public class ZigzagConversion implements Solvable2<String, Integer, String> {
-    @NotOptimizedYet
     @Override
     public String solve(String s, Integer numRows) {
-        return null;
+        if (numRows < 2) return s;
+        StringBuilder[] rows = new StringBuilder[numRows];
+        for (int r = 0; r < numRows; r++) {
+            rows[r] = new StringBuilder();
+        }
+        int c = numRows + numRows - 2;
+        for (int i = 0; i < s.length(); i++) {
+            int d = i % c;
+            int p = d < numRows ? d : c - d;
+            rows[p].append(s.charAt(i));
+        }
+        return String.join("", rows);
     }
 }

@@ -26,6 +26,7 @@ public class ZigzagConversionTest extends ProblemTest<ZigzagConversion> {
         return Stream.of(
                 Arguments.of("PAYPALISHIRING", 3, "PAHNAPLSIIGYIR"),
                 Arguments.of("PAYPALISHIRING", 4, "PINALSIGYAHRPI"),
-                Arguments.of("A", 1, "A"));
+                Arguments.of("A", 1, "A"),
+                Arguments.of("A", 2, "A"));
     }
 }
