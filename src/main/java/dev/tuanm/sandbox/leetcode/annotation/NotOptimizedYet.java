@@ -9,10 +9,10 @@ import java.lang.annotation.Target;
  * Marks a method is not an optimized solution, needing an improvement.
  */
 @Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.SOURCE)
 public @interface NotOptimizedYet {
     /**
      * Some issues that need to be fixed.
      */
-    String[] comments() default "";
+    String comment() default "";
 }

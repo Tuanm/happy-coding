@@ -1,7 +1,6 @@
 package dev.tuanm.sandbox.leetcode.problem;
 
 import dev.tuanm.sandbox.leetcode.annotation.Difficulty;
-import dev.tuanm.sandbox.leetcode.annotation.NotOptimizedYet;
 import dev.tuanm.sandbox.leetcode.annotation.Problem;
 import dev.tuanm.sandbox.leetcode.core.Solvable1;
 
@@ -42,44 +41,6 @@ public class RemoveDuplicatesFromSortedArray implements Solvable1<int[], Integer
                 k -= i;
             }
         }
-        return k;
-    }
-
-    @NotOptimizedYet
-    int solve2(int[] nums) {
-        int k = nums.length;
-        int j = 0;
-        while (j < k - 1) {
-            if (nums[j] == nums[j + 1]) {
-                for (int p = j + 1; p < k - 1; p++) {
-                    nums[p] = nums[p + 1];
-                }
-                k--;
-            } else j++;
-        }
-        return k;
-    }
-
-    @NotOptimizedYet
-    int solve1(int[] nums) {
-        int k = nums.length;
-
-        int i = 0;
-        while (i < k) {
-            boolean q = true;
-            for (int j = i + 1; j < k; j++) {
-                if (nums[i] == nums[j]) {
-                    for (int p = j - 1; p < k - 1; p++) {
-                        nums[p] = nums[p + 1];
-                    }
-                    k--;
-                    q = false;
-                    break;
-                }
-            }
-            if (q) i++;
-        }
-
         return k;
     }
 }
