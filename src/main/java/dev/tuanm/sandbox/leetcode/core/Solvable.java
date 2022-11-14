@@ -2,6 +2,7 @@ package dev.tuanm.sandbox.leetcode.core;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.Objects;
 
 import dev.tuanm.sandbox.leetcode.exception.NotImplementedException;
 import dev.tuanm.sandbox.leetcode.exception.NotSupportedException;
@@ -17,6 +18,18 @@ public interface Solvable<O> {
      */
     default O solve(Object... inputs) {
         throw new NotImplementedException();
+    }
+
+    /**
+     * Tests the solution by invoking the method {@link Solvable#solve(Object...)},
+     * then does some comparisons.
+     *
+     * @param expected the expected output.
+     * @param inputs the inputs.
+     * @return {@code true} if the test is passed; otherwise {@code false}.
+     */
+    default boolean test(O expected, Object... inputs) {
+        return Objects.deepEquals(expected, this.solve(inputs));
     }
 
     /**
