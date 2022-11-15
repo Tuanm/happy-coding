@@ -10,8 +10,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
-import static dev.tuanm.sandbox.leetcode.util.Creators.array;
-
 public class SearchInsertPositionTest extends ProblemTest<SearchInsertPosition> {
     @Override
     protected SearchInsertPosition problem() {
