@@ -34,10 +34,10 @@ public final class Problems {
     /**
      * Retrieves the metadata of a problem.
      *
-     * @param <O>     the problem's output type.
+     * @param <S>     the problem's type.
      * @param problem the problem.
      */
-    public static <O> Problem metaData(Solvable<O> problem) {
+    public static <S extends Solvable<? extends Object>> Problem metaData(S problem) {
         return Optional.ofNullable(problem)
                 .map(Object::getClass)
                 .map(clazz -> clazz.getAnnotation(Problem.class))

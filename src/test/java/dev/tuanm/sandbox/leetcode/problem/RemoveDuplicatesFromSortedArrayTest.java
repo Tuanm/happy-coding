@@ -8,8 +8,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import static dev.tuanm.sandbox.leetcode.util.Creators.array;
-
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class RemoveDuplicatesFromSortedArrayTest extends ProblemTest<RemoveDuplicatesFromSortedArray> {
@@ -29,7 +27,7 @@ public class RemoveDuplicatesFromSortedArrayTest extends ProblemTest<RemoveDupli
 
     static Stream<Arguments> source() {
         return Stream.of(
-                Arguments.of(array(1, 1, 2), 2, array(1, 2)),
-                Arguments.of(array(0, 0, 1, 1, 1, 2, 2, 3, 3, 4), 5, array(0, 1, 2, 3, 4)));
+                Arguments.of(new int[] { 1, 1, 2 }, 2, new int[] { 1, 2 }),
+                Arguments.of(new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 }, 5, new int[] { 0, 1, 2, 3, 4 }));
     }
 }
