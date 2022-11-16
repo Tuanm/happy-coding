@@ -19,6 +19,22 @@ import dev.tuanm.sandbox.leetcode.core.Solvable1;
 public class ContainerWithMostWater implements Solvable1<int[], Integer> {
     @Override
     public Integer solve(int[] height) {
-        return null;
+        int maxArea = 0;
+
+        int left = 0;
+        int right = height.length - 1;
+        while (left < right) {
+            int width = right - left;
+            int area = width * Math.min(height[left], height[right]);
+            maxArea = Math.max(maxArea, area);
+            // maximize the area by moving the smaller line towards the bigger
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+
+        return maxArea;
     }
 }
