@@ -1,12 +1,10 @@
 package dev.tuanm.sandbox.leetcode;
 
-import java.util.Optional;
-
 import org.junit.jupiter.api.BeforeEach;
 
 import dev.tuanm.sandbox.leetcode.annotation.Problem;
 import dev.tuanm.sandbox.leetcode.core.Solvable;
-import dev.tuanm.sandbox.leetcode.exception.NotSupportedException;
+import dev.tuanm.sandbox.leetcode.util.Problems;
 
 /**
  * Base class for problem testing.
@@ -47,15 +45,12 @@ public abstract class ProblemTest<S extends Solvable<?>> {
      * <em>The associated problem must be defined as a class
      * that is annotated with {@link Problem}, or the test
      * goes failed.</em>
+     *
+     * @see Problems
      */
     @BeforeEach
     private void setUp() {
-        problem = problem();
-        this.metaData = Optional.ofNullable(problem)
-                .map(problem -> problem.getClass())
-                .map(clazz -> clazz.getAnnotation(Problem.class))
-                .orElseThrow(() -> new NotSupportedException(
-                        String.format("Class %s must be annotated with %s to be testable",
-                                problem.getClass().getName(), Problem.class.getName())));
+        this.problem = problem();
+        this.metaData = Problems.metaData(this.problem);
     }
 }
