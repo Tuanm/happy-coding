@@ -32,7 +32,8 @@ public interface Solvable<O> {
      * @see Objects#deepEquals(Object, Object)
      */
     default boolean test(O expected, Object... inputs) {
-        return Objects.deepEquals(expected, this.solve(inputs));
+        O actual = this.solve(inputs);
+        return Objects.deepEquals(expected, actual);
     }
 
     /**
@@ -46,8 +47,9 @@ public interface Solvable<O> {
      * @see Comparator
      */
     default boolean test(Comparator<O> comparator, O expected, Object... inputs) {
+        O actual = this.solve(inputs);
         return Optional.ofNullable(comparator)
-                .map(comp -> comp.compare(expected, this.solve(inputs)) == 0)
+                .map(comp -> comp.compare(expected, actual) == 0)
                 .orElseThrow(() -> new NotSupportedException("comparator cannot be null"));
     }
 
