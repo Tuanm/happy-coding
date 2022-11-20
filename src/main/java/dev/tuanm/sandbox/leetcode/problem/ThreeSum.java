@@ -2,10 +2,8 @@ package dev.tuanm.sandbox.leetcode.problem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 import dev.tuanm.sandbox.leetcode.annotation.Difficulty;
@@ -24,25 +22,26 @@ import dev.tuanm.sandbox.leetcode.core.Solvable1;
 public class ThreeSum implements Solvable1<int[], List<List<Integer>>> {
     @Override
     public List<List<Integer>> solve(int[] nums) {
-        List<List<Integer>> triplets = new ArrayList<>();
-        Set<Integer> tripletHashes = new HashSet<>();
+        Set<List<Integer>> triplets = new HashSet<>();
 
+        Arrays.sort(nums);
         for (int i = 0; i < nums.length - 2; i++) {
-            for (int j = i + 1; j < nums.length - 1; j++) {
-                for (int k = j + 1; k < nums.length; k++) {
-                    if (nums[i] + nums[j] + nums[k] == 0) {
-                        List<Integer> triplet = Arrays.asList(nums[i], nums[j], nums[k]);
-                        Collections.sort(triplet);
-                        Integer hash = Objects.hash(triplet);
-                        if (!tripletHashes.contains(hash)) {
-                            triplets.add(triplet);
-                            tripletHashes.add(hash);
-                        }
+            int left = i + 1;
+            int right = nums.length - 1;
+            while (left < right) {
+                int sum = nums[i] + nums[left] + nums[right];
+                if (sum > 0) {
+                    right--;
+                } else {
+                    if (sum == 0) {
+                        triplets.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                        right--;
                     }
+                    left++;
                 }
             }
         }
 
-        return triplets;
+        return new ArrayList<>(triplets);
     }
 }
