@@ -5,6 +5,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import dev.tuanm.sandbox.leetcode.common.Tag;
+
 /**
  * Marks a class as a problem.
  */
@@ -26,6 +28,11 @@ public @interface Problem {
      * The desciption of the problem.
      */
     String[] description() default "";
+
+    /**
+     * The tags associated with the problem.
+     */
+    Tag[] tag() default Tag.NONE;
 
     /**
      * The difficulty of the problem.

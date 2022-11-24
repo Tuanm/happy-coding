@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import dev.tuanm.sandbox.leetcode.annotation.Difficulty;
 import dev.tuanm.sandbox.leetcode.annotation.Problem;
+import dev.tuanm.sandbox.leetcode.common.Tag;
 import dev.tuanm.sandbox.leetcode.core.Solvable;
 import dev.tuanm.sandbox.leetcode.exception.NotImplementedException;
 import dev.tuanm.sandbox.leetcode.exception.NotSupportedException;
@@ -74,6 +75,15 @@ public final class Problems {
             return problem -> {
                 Problem metaData = metaData(problem);
                 return difficulties.contains(metaData.difficulty());
+            };
+        }
+
+        public static <O> SearchParam<Solvable<O>> of(Tag... params) {
+            List<Tag> tags = Arrays.asList(params);
+            return problem -> {
+                Problem metaData = metaData(problem);
+                return Arrays.asList(metaData.tag()).stream()
+                        .anyMatch(tags::contains);
             };
         }
     }

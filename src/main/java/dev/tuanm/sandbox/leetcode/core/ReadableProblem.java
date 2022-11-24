@@ -1,8 +1,12 @@
 package dev.tuanm.sandbox.leetcode.core;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import dev.tuanm.sandbox.leetcode.annotation.Problem;
+import dev.tuanm.sandbox.leetcode.common.Tag;
 import dev.tuanm.sandbox.leetcode.exception.NotSupportedException;
 
 /**
@@ -58,6 +62,15 @@ public class ReadableProblem {
             }
         }
         return description.toString();
+    }
+
+    /**
+     * The tags associated with the problem.
+     */
+    public List<String> tags() {
+        return Arrays.asList(problem().tag()).stream()
+                .map(Tag::id)
+                .collect(Collectors.toList());
     }
 
     /**
