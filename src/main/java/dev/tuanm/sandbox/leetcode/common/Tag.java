@@ -9,6 +9,10 @@ public enum Tag {
      */
     NONE(""),
     /**
+     * Indicates a "Greedy" problem.
+     */
+    GREEDY("greedy"),
+    /**
      * Indicates a "Dynamic Programming" problem.
      */
     DYNAMIC_PROGRAMMING("dynamic-programming");
