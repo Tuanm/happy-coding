@@ -26,6 +26,7 @@ public class JumpGameTest extends ProblemTest<JumpGame> {
 
     static Stream<Arguments> source() {
         return Stream.of(
+                Arguments.of(ints(0), true),
                 Arguments.of(ints(2, 3, 1, 1, 4), true),
                 Arguments.of(ints(3, 2, 1, 0, 4), false));
     }
