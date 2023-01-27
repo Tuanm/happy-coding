@@ -10,7 +10,7 @@ public interface Solvable1<I1, O> extends Solvable<O> {
         if (inputs.length < 1) {
             throw new NotSupportedException();
         }
-        I1 input1 = Helper.cast(this.getClass(), 0, inputs[0]);
+        I1 input1 = this.inputAt(0, inputs);
         return this.solve(input1);
     }
 }

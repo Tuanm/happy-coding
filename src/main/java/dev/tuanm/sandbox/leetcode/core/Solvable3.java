@@ -10,9 +10,9 @@ public interface Solvable3<I1, I2, I3, O> extends Solvable<O> {
         if (inputs.length < 3) {
             throw new NotSupportedException();
         }
-        I1 input1 = Helper.cast(this.getClass(), 0, inputs[0]);
-        I2 input2 = Helper.cast(this.getClass(), 1, inputs[1]);
-        I3 input3 = Helper.cast(this.getClass(), 2, inputs[2]);
+        I1 input1 = this.inputAt(0, inputs);
+        I2 input2 = this.inputAt(1, inputs);
+        I3 input3 = this.inputAt(2, inputs);
         return this.solve(input1, input2, input3);
     }
 }
