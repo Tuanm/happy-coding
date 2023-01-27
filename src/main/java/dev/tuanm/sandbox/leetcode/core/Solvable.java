@@ -56,10 +56,23 @@ public interface Solvable<O> {
     /**
      * Retrieves the input at a specific position with its proper type.
      *
-     * @see Helper#cast(Class, int, Object) 
+     * @see Helper#cast(Class, int, Object)
      */
     default <I> I inputAt(int order, Object... inputs) {
         return Helper.cast(this.getClass(), order, inputs[order]);
+    }
+
+    /**
+     * Throws an {@link IllegalArgumentException} if the inputs
+     * do not meet the required size of arguments. It should be
+     * invoked at the beginning of the {@link Solvable#solve(Object...)}'s
+     * implementation.
+     *
+     * @param inputs the inputs.
+     * @see Helper#validateInputs(Class, int)
+     */
+    default void validateInputs(Object... inputs) {
+        Helper.validateInputs(this.getClass(), inputs.length);
     }
 
     /**
@@ -67,6 +80,20 @@ public interface Solvable<O> {
      */
     class Helper {
         private Helper() {}
+
+        /**
+         * Returns an array of the type declared in the interface.
+         *
+         * @param <R> the interface type.
+         * @param clazz the class of the interface.
+         */
+        private static <R> Type[] actualTypeArguments(Class<R> clazz) {
+            Type[] types = clazz.getGenericInterfaces();
+            if (types.length > 0 && types[0] instanceof ParameterizedType) {
+                return ((ParameterizedType) types[0]).getActualTypeArguments();
+            }
+            throw new NotSupportedException();
+        }
 
         /**
          * Casts an {@link Object} to a specific generic type
@@ -77,17 +104,31 @@ public interface Solvable<O> {
          * @param clazz the class of the interface.
          * @param order the order of the input in the interface's declaration.
          * @param value the input's value.
+         * @see Helper#actualTypeArguments(Class) 
          */
         @SuppressWarnings("unchecked")
         public static <I, R> I cast(Class<R> clazz, int order, Object value) {
-            Type[] types = clazz.getGenericInterfaces();
-            if (types.length > 0 && types[0] instanceof ParameterizedType) {
-                Type[] arguments = ((ParameterizedType) types[0]).getActualTypeArguments();
-                if (order < arguments.length) {
-                    return ((Class<I>) arguments[order]).cast(value); // this cast is unchecked
-                }
+            Type[] arguments = actualTypeArguments(clazz);
+            if (order < arguments.length) {
+                return ((Class<I>) arguments[order]).cast(value); // this cast is unchecked
             }
-            throw new NotSupportedException();
+            throw new IllegalArgumentException("input order invalid");
+        }
+
+        /**
+         * Validates the inputs to ensure it meets
+         * the defined-argument size of the interface.
+         *
+         * @param <R> the interface type.
+         * @param clazz the class of the interface.
+         * @param actualSize the size of the inputs.
+         * @see Helper#actualTypeArguments(Class) 
+         */
+        public static <R> void validateInputs(Class<R> clazz, int actualSize) {
+            Type[] arguments = actualTypeArguments(clazz);
+            if (actualSize + 1 < arguments.length) { // omit the argument for the result
+                throw new IllegalArgumentException("input length insufficient");
+            }
         }
     }
 }
