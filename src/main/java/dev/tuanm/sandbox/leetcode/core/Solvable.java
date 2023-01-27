@@ -54,6 +54,15 @@ public interface Solvable<O> {
     }
 
     /**
+     * Retrieves the input at a specific position with its proper type.
+     *
+     * @see Helper#cast(Class, int, Object) 
+     */
+    default <I> I inputAt(int order, Object... inputs) {
+        return Helper.cast(this.getClass(), order, inputs[order]);
+    }
+
+    /**
      * A helper-class for {@link Solvable}.
      */
     class Helper {

@@ -10,10 +10,10 @@ public interface Solvable4<I1, I2, I3, I4, O> extends Solvable<O> {
         if (inputs.length < 4) {
             throw new NotSupportedException();
         }
-        I1 input1 = Helper.cast(this.getClass(), 0, inputs[0]);
-        I2 input2 = Helper.cast(this.getClass(), 1, inputs[1]);
-        I3 input3 = Helper.cast(this.getClass(), 2, inputs[2]);
-        I4 input4 = Helper.cast(this.getClass(), 3, inputs[3]);
+        I1 input1 = this.inputAt(0, inputs);
+        I2 input2 = this.inputAt(1, inputs);
+        I3 input3 = this.inputAt(2, inputs);
+        I4 input4 = this.inputAt(3, inputs);
         return this.solve(input1, input2, input3, input4);
     }
 }

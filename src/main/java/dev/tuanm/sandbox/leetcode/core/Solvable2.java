@@ -10,8 +10,8 @@ public interface Solvable2<I1, I2, O> extends Solvable<O> {
         if (inputs.length < 2) {
             throw new NotSupportedException();
         }
-        I1 input1 = Helper.cast(this.getClass(), 0, inputs[0]);
-        I2 input2 = Helper.cast(this.getClass(), 1, inputs[1]);
+        I1 input1 = this.inputAt(0, inputs);
+        I2 input2 = this.inputAt(1, inputs);
         return this.solve(input1, input2);
     }
 }
