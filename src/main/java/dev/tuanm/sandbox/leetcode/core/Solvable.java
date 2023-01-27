@@ -56,7 +56,7 @@ public interface Solvable<O> {
     /**
      * A helper-class for {@link Solvable}.
      */
-    static class Helper {
+    class Helper {
         private Helper() {}
 
         /**
@@ -70,7 +70,7 @@ public interface Solvable<O> {
          * @param value the input's value.
          */
         @SuppressWarnings("unchecked")
-        public static final <I, R> I cast(Class<R> clazz, int order, Object value) {
+        public static <I, R> I cast(Class<R> clazz, int order, Object value) {
             Type[] types = clazz.getGenericInterfaces();
             if (types.length > 0 && types[0] instanceof ParameterizedType) {
                 Type[] arguments = ((ParameterizedType) types[0]).getActualTypeArguments();

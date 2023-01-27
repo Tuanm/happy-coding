@@ -25,7 +25,7 @@ public @interface Problem {
     String source() default "";
 
     /**
-     * The desciption of the problem.
+     * The description of the problem.
      */
     String[] description() default "";
 

@@ -50,7 +50,7 @@ public class ReadableProblem {
     }
 
     /**
-     * The desciption of the problem.
+     * The description of the problem.
      */
     public String description() {
         StringBuilder description = new StringBuilder();
@@ -58,7 +58,7 @@ public class ReadableProblem {
             if (sentence == null || sentence.trim().length() == 0) {
                 description.append(System.lineSeparator());
             } else {
-                description.append(" " + sentence);
+                description.append(" ").append(sentence);
             }
         }
         return description.toString();
@@ -68,7 +68,7 @@ public class ReadableProblem {
      * The tags associated with the problem.
      */
     public List<String> tags() {
-        return Arrays.asList(problem().tag()).stream()
+        return Arrays.stream(problem().tag())
                 .map(Tag::id)
                 .collect(Collectors.toList());
     }

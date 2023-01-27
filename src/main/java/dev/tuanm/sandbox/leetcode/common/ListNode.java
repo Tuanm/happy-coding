@@ -33,9 +33,9 @@ public class ListNode {
             vals.add(cur.getVal());
             cur = cur.getNext();
         }
-        return "[" + String.join(",", vals.stream()
+        return "[" + vals.stream()
                 .map(Object::toString)
-                .collect(Collectors.toList())) + "]";
+                .collect(Collectors.joining(",")) + "]";
     }
 
     @Override

@@ -38,27 +38,26 @@ public final class Problems {
      * @param <S>     the problem's type.
      * @param problem the problem.
      */
-    public static <S extends Solvable<? extends Object>> Problem metaData(S problem) {
+    public static <S extends Solvable<?>> Problem metaData(S problem) {
         return Optional.ofNullable(problem)
                 .map(Object::getClass)
                 .map(clazz -> clazz.getAnnotation(Problem.class))
                 .orElseThrow(() -> new NotSupportedException(
                         String.format("Class %s must be annotated with %s to be testable",
-                                problem.getClass().getName(), Problem.class.getName())));
+                                problem, Problem.class.getName())));
     }
 
     /**
      * Searches and returns a list of problems
-     * that matches all of the specific {@link SearchParam}s.
+     * that matches all the specific {@link SearchParam}s.
      */
     @SuppressWarnings("java:S1452") // for using wildcard types
     @SafeVarargs
     public static List<Solvable<?>> search(SearchParam<? extends Solvable<?>>... searchParams) {
-        /**
+        /*
          * TODO: Implement the method Problems.search(SearchParam...)
-         *
          * 1. Scan all classes in the package `dev.tuanm.sandbox.leetcode.problem`.
-         * 2. Do filterings in the result.
+         * 2. Do filtering in the result.
          */
         throw new NotImplementedException();
     }
@@ -82,7 +81,7 @@ public final class Problems {
             List<Tag> tags = Arrays.asList(params);
             return problem -> {
                 Problem metaData = metaData(problem);
-                return Arrays.asList(metaData.tag()).stream()
+                return Arrays.stream(metaData.tag())
                         .anyMatch(tags::contains);
             };
         }

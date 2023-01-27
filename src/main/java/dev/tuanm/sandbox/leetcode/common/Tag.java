@@ -19,7 +19,7 @@ public enum Tag {
 
     private final String id;
 
-    private Tag(String id) {
+    Tag(String id) {
         this.id = id;
     }
 

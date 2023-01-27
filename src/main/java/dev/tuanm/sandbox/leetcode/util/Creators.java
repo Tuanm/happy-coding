@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * It's easier now when you wanna create something.
+ * It's easier now when you want to create something.
  */
 public final class Creators {
     private Creators() {}

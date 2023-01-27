@@ -49,7 +49,7 @@ public abstract class ProblemTest<S extends Solvable<?>> {
      * @see Problems
      */
     @BeforeEach
-    private void setUp() {
+    protected void setUp() {
         this.problem = problem();
         this.metaData = Problems.metaData(this.problem);
     }
