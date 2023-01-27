@@ -1,5 +1,6 @@
 target/
 .vscode/
+.idea/
 
 # I usually add the following file for quick testing,
 # I'd better add its name here.
