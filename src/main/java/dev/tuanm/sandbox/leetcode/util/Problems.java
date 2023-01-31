@@ -71,19 +71,13 @@ public final class Problems {
 
         public static <O> SearchParam<Solvable<O>> of(Difficulty... params) {
             List<Difficulty> difficulties = Arrays.asList(params);
-            return problem -> {
-                Problem metaData = metaData(problem);
-                return difficulties.contains(metaData.difficulty());
-            };
+            return problem -> difficulties.contains(metaData(problem).difficulty());
         }
 
         public static <O> SearchParam<Solvable<O>> of(Tag... params) {
             List<Tag> tags = Arrays.asList(params);
-            return problem -> {
-                Problem metaData = metaData(problem);
-                return Arrays.stream(metaData.tag())
-                        .anyMatch(tags::contains);
-            };
+            return problem -> Arrays.stream(metaData(problem).tag())
+                    .anyMatch(tags::contains);
         }
     }
 }
