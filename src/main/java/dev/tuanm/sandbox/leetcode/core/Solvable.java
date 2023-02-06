@@ -104,7 +104,7 @@ public interface Solvable<O> {
          * @param clazz the class of the interface.
          * @param order the order of the input in the interface's declaration.
          * @param value the input's value.
-         * @see Helper#actualTypeArguments(Class) 
+         * @see Helper#actualTypeArguments(Class)
          */
         @SuppressWarnings("unchecked")
         public static <I, R> I cast(Class<R> clazz, int order, Object value) {
@@ -122,7 +122,7 @@ public interface Solvable<O> {
          * @param <R> the interface type.
          * @param clazz the class of the interface.
          * @param actualSize the size of the inputs.
-         * @see Helper#actualTypeArguments(Class) 
+         * @see Helper#actualTypeArguments(Class)
          */
         public static <R> void validateInputs(Class<R> clazz, int actualSize) {
             Type[] arguments = actualTypeArguments(clazz);
