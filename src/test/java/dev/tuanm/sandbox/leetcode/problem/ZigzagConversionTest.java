@@ -11,11 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class ZigzagConversionTest extends ProblemTest<ZigzagConversion> {
-    @Override
-    protected ZigzagConversion problem() {
-        return new ZigzagConversion();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(String s, int numRows, String expected) {

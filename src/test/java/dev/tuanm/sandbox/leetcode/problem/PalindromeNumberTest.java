@@ -8,11 +8,6 @@ import org.junit.jupiter.api.Test;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class PalindromeNumberTest extends ProblemTest<PalindromeNumber> {
-    @Override
-    protected PalindromeNumber problem() {
-        return new PalindromeNumber();
-    }
-
     @Test
     @DisplayName("Example 1")
     void example1() {

@@ -13,11 +13,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class ThreeSumTest extends ProblemTest<ThreeSum> {
-    @Override
-    protected ThreeSum problem() {
-        return new ThreeSum();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(int[] nums, List<List<Integer>> expected) {

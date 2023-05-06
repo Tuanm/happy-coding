@@ -10,11 +10,6 @@ import org.junit.jupiter.api.Test;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class TwoSumTest extends ProblemTest<TwoSum> {
-    @Override
-    protected TwoSum problem() {
-        return new TwoSum();
-    }
-
     @Test
     @DisplayName("Example 1")
     void example1() {

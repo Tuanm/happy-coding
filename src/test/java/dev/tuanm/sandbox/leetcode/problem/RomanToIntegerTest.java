@@ -8,11 +8,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class RomanToIntegerTest extends ProblemTest<RomanToInteger> {
-    @Override
-    protected RomanToInteger problem() {
-        return new RomanToInteger();
-    }
-
     @ParameterizedTest
     @CsvSource({
         "III, 3",

@@ -11,11 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class ContainerWithMostWaterTest extends ProblemTest<ContainerWithMostWater> {
-    @Override
-    protected ContainerWithMostWater problem() {
-        return new ContainerWithMostWater();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(int[] height, int expected) {

@@ -12,11 +12,6 @@ import dev.tuanm.sandbox.leetcode.ProblemTest;
 import dev.tuanm.sandbox.leetcode.common.ListNode;
 
 public class MergeTwoSortedListsTest extends ProblemTest<MergeTwoSortedLists> {
-    @Override
-    protected MergeTwoSortedLists problem() {
-        return new MergeTwoSortedLists();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(ListNode list1, ListNode list2, ListNode expectation) {

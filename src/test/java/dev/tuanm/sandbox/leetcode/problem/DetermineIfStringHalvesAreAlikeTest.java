@@ -11,11 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class DetermineIfStringHalvesAreAlikeTest extends ProblemTest<DetermineIfStringHalvesAreAlike> {
-    @Override
-    protected DetermineIfStringHalvesAreAlike problem() {
-        return new DetermineIfStringHalvesAreAlike();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(String s, boolean expected) {

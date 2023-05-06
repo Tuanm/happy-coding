@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import dev.tuanm.sandbox.leetcode.annotation.Problem;
 import dev.tuanm.sandbox.leetcode.core.Solvable;
+import dev.tuanm.sandbox.leetcode.util.Creators;
 import dev.tuanm.sandbox.leetcode.util.Problems;
 
 /**
@@ -34,7 +35,9 @@ public abstract class ProblemTest<S extends Solvable<?>> {
      * <em>This method will be implicitly invoked inside
      * the method {@link ProblemTest#setUp()} before each test.</em>
      */
-    protected abstract S problem();
+    protected S problem() {
+        return Creators.fromGenericArgument(this.getClass(), 0);
+    }
 
     /**
      * <p>

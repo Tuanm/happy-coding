@@ -11,11 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class ClimbingStairsTest extends ProblemTest<ClimbingStairs> {
-    @Override
-    protected ClimbingStairs problem() {
-        return new ClimbingStairs();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(int n, int expected) {

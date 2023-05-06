@@ -13,11 +13,6 @@ import dev.tuanm.sandbox.leetcode.ProblemTest;
 import static dev.tuanm.sandbox.leetcode.util.Creators.ints;
 
 public class JumpGameTest extends ProblemTest<JumpGame> {
-    @Override
-    protected JumpGame problem() {
-        return new JumpGame();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(int[] nums, boolean expected) {

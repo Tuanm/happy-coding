@@ -11,11 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class ReverseIntegerTest extends ProblemTest<ReverseInteger> {
-    @Override
-    protected ReverseInteger problem() {
-        return new ReverseInteger();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(int x, int expected) {

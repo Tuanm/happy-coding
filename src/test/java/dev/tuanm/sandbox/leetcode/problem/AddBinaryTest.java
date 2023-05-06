@@ -11,11 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class AddBinaryTest extends ProblemTest<AddBinary> {
-    @Override
-    protected AddBinary problem() {
-        return new AddBinary();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(String a, String b, String expected) {

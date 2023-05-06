@@ -11,11 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class LongestPalindromicSubstringTest extends ProblemTest<LongestPalindromicSubstring> {
-    @Override
-    protected LongestPalindromicSubstring problem() {
-        return new LongestPalindromicSubstring();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(String s, String expected) {

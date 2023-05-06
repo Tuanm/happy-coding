@@ -11,11 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class RemoveDuplicatesFromSortedArrayTest extends ProblemTest<RemoveDuplicatesFromSortedArray> {
-    @Override
-    protected RemoveDuplicatesFromSortedArray problem() {
-        return new RemoveDuplicatesFromSortedArray();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(int[] nums, int k, int[] expected) {

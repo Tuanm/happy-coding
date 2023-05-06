@@ -12,11 +12,6 @@ import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class LongestSubstringWithoutRepeatingCharactersTest
         extends ProblemTest<LongestSubstringWithoutRepeatingCharacters> {
-    @Override
-    protected LongestSubstringWithoutRepeatingCharacters problem() {
-        return new LongestSubstringWithoutRepeatingCharacters();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(String s, int expected) {

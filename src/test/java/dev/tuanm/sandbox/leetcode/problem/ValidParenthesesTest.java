@@ -8,11 +8,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class ValidParenthesesTest extends ProblemTest<ValidParentheses> {
-    @Override
-    protected ValidParentheses problem() {
-        return new ValidParentheses();
-    }
-
     @ParameterizedTest
     @CsvSource({
         "(), true",

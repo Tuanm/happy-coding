@@ -1,5 +1,6 @@
 package dev.tuanm.sandbox.leetcode.util;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.Arrays;
 import java.util.List;
 
@@ -76,5 +77,24 @@ public final class Creators {
     @SafeVarargs
     public static <T> List<T> list(T... vals) {
         return Arrays.asList(vals);
+    }
+
+    /**
+     * Creates an instance of a specific argument of a generic class.
+     *
+     * @param <T> the generic class' type.
+     * @param <P> the creating instance's type.
+     * @param clazz the generic class.
+     * @param argumentIndex the argument's index in the generic parameter type list.
+     */
+    @SuppressWarnings("unchecked")
+    public static <T, P> P fromGenericArgument(Class<T> clazz, int argumentIndex) {
+        try {
+            ParameterizedType pt = (ParameterizedType) clazz.getGenericSuperclass();
+            Class<P> argumentClazz = (Class<P>) pt.getActualTypeArguments()[argumentIndex];
+            return argumentClazz.getConstructor().newInstance();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex.getMessage(), ex);
+        }
     }
 }

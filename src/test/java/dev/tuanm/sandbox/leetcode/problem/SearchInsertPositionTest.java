@@ -11,11 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class SearchInsertPositionTest extends ProblemTest<SearchInsertPosition> {
-    @Override
-    protected SearchInsertPosition problem() {
-        return new SearchInsertPosition();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(int[] nums, int target, int expected) {

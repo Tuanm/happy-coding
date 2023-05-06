@@ -13,11 +13,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import dev.tuanm.sandbox.leetcode.ProblemTest;
 
 public class LetterCombinationsOfAPhoneNumberTest extends ProblemTest<LetterCombinationsOfAPhoneNumber> {
-    @Override
-    protected LetterCombinationsOfAPhoneNumber problem() {
-        return new LetterCombinationsOfAPhoneNumber();
-    }
-
     @ParameterizedTest
     @MethodSource("source")
     void testExamples(String digits, List<String> expected) {
